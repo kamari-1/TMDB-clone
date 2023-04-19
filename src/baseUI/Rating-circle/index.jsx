@@ -61,7 +61,7 @@ const RatingCircle = ({ percent }) => {
       <div className="font-semibold absolute text-white text-[.85rem]">
         {percent ? (
           <div>
-            {percent}
+            {Math.trunc(percent)}
             <sup className="text-[5px] align-super">%</sup>
           </div>
         ) : (

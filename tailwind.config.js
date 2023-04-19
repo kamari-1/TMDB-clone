@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       colors: {
         tmdbDarkBlue: "rgb(3,37,65)",
-        tmdbLightBlue: "1,180,228",
+        tmdbLightBlue: "rgb(1,180,228)",
         tmdbLightGreen: "rgb(30,213,169)",
       },
       backgroundImage: {

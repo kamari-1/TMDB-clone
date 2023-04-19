@@ -8,9 +8,9 @@ import Section from "./layouts/Section";
 
 function App() {
   const [sectionState, setSectionState] = useState({
-    first: "On TV",
+    first: "Today",
     second: "On TV",
-    third: "Today",
+    third: "On TV",
   });
 
   const setToggledValue = (section, selectedValue) => {
@@ -27,12 +27,20 @@ function App() {
       <Container>
         <Banner />
         <Section
-          title={"What's Popular"}
-          items={["On TV", "In Theartres"]}
+          title={"Trending"}
+          items={["Today", "This Week"]}
           onToggle={setToggledValue.bind(null, "first")}
-          isToggled={sectionState.first === "On TV" ? false : true}
+          isToggled={sectionState.first === "Today" ? false : true}
         >
           <MovieList fetch={sectionState.first} />
+        </Section>
+        <Section
+          title={"What's Popular"}
+          items={["On TV", "In Theartres"]}
+          onToggle={setToggledValue.bind(null, "third")}
+          isToggled={sectionState.third === "On TV" ? false : true}
+        >
+          <MovieList fetch={sectionState.third} />
         </Section>
       </Container>
     </>
