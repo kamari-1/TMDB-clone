@@ -1,9 +1,20 @@
+import { memo } from "react";
+import moment from "moment/moment";
 import Ellipsis from "../../baseUI/Ellipsis";
 import RatingCircle from "../../baseUI/Rating-circle";
 
 const getPosterPath = (posterPath) =>
   `https://www.themoviedb.org/t/p/w220_and_h330_face/${posterPath}`;
 
+const getDate = (date) => {
+  // date = Date.parse(date);
+  // const newDate = new Intl.DateTimeFormat("en-GB", {
+  //   day: "2-digit",
+  //   month: "short",
+  //   year: "numeric",
+  // }).format(Date.parse(date));
+  return moment(date).format("ll");
+};
 const MovieCard = ({
   poster_path,
   name,
@@ -32,11 +43,11 @@ const MovieCard = ({
           {name || title}
         </h3>
         <p className="font-normal text-slate-500">
-          {first_air_date || release_date}
+          {release_date ? getDate(release_date) : getDate(first_air_date)}
         </p>
       </div>
     </div>
   );
 };
 
-export default MovieCard;
+export default memo(MovieCard);
